@@ -2,21 +2,21 @@ package com.basecodesetup.laineljohndelacruz.myandroidbasecode.activities;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Debug;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.basecodesetup.laineljohndelacruz.myandroidbasecode.MyCustomTF;
 import com.basecodesetup.laineljohndelacruz.myandroidbasecode.R;
+import com.basecodesetup.laineljohndelacruz.myandroidbasecode.adapters.sample_adapter;
+import com.basecodesetup.laineljohndelacruz.myandroidbasecode.model.PersonTransaction;
 
 import java.io.Console;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MyCustomTF.OnFragmentInteractionListener {
 
@@ -31,10 +31,11 @@ public class MainActivity extends AppCompatActivity implements MyCustomTF.OnFrag
         MyCustomTF mctf_password = (MyCustomTF) getSupportFragmentManager().findFragmentById(R.id.mctf_fragment_password);
         mctf_password.setLabel("Password");
         mctf_password.setTF("Password", InputType.TYPE_TEXT_VARIATION_PASSWORD);
-
 //        MyCustomTF fragment=MyCustomTF.newInstance();
 //        fragment.setLabel("WTH");
 //        this.transactFragments(fragment, "MyCustomTF");
+
+
     }
 
     //this is the dynamic way and how to add fragments to view in code
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements MyCustomTF.OnFrag
     }
     public void loginOnClick(View view){
         startActivity(new Intent(this, Dashboard.class));
+
     }
 
 
