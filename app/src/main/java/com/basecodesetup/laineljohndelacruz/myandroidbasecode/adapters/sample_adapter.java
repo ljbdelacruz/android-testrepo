@@ -61,7 +61,6 @@ public class sample_adapter extends ArrayAdapter<PersonTransaction> {
         lastPosition = position;
         Picasso.with(getContext().getApplicationContext()).load(person.profileImage).into(holder.profilePic);
         holder.name.setText(person.name);
-//        holder.name.setTextColor(R.color.colorPrimaryDark);
         holder.subDesc.setText(person.subDescription);
         return convertView;
     }
