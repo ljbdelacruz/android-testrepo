@@ -8,34 +8,21 @@ import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 
-import com.basecodesetup.laineljohndelacruz.myandroidbasecode.MyCustomTF;
+import com.basecodesetup.laineljohndelacruz.myandroidbasecode.fragments.textfields.MyCustomTF;
 import com.basecodesetup.laineljohndelacruz.myandroidbasecode.R;
-import com.basecodesetup.laineljohndelacruz.myandroidbasecode.adapters.sample_adapter;
-import com.basecodesetup.laineljohndelacruz.myandroidbasecode.model.PersonTransaction;
-
-import java.io.Console;
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MyCustomTF.OnFragmentInteractionListener {
+
+    MyCustomTF usernameTF;
+    MyCustomTF passwordTF;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //this is the way to access the ui setup for fragment
-        MyCustomTF mctf = (MyCustomTF) getSupportFragmentManager().findFragmentById(R.id.mctf_fragment_username);
-        mctf.setLabel("Username");
-        mctf.setTF("Username", InputType.TYPE_TEXT_VARIATION_NORMAL);
-        MyCustomTF mctf_password = (MyCustomTF) getSupportFragmentManager().findFragmentById(R.id.mctf_fragment_password);
-        mctf_password.setLabel("Password");
-        mctf_password.setTF("Password", InputType.TYPE_TEXT_VARIATION_PASSWORD);
-//        MyCustomTF fragment=MyCustomTF.newInstance();
-//        fragment.setLabel("WTH");
-//        this.transactFragments(fragment, "MyCustomTF");
-
-
+        this.setupTextFieldsUI();
     }
 
     //this is the dynamic way and how to add fragments to view in code
@@ -54,16 +41,33 @@ public class MainActivity extends AppCompatActivity implements MyCustomTF.OnFrag
 ////        }
     }
     public void loginOnClick(View view){
+        Log.d("SAM", this.usernameTF.getTextValue()+" "+this.passwordTF.getTextValue());
         startActivity(new Intent(this, Dashboard.class));
 
     }
-
-
 
     //MARK: handler interface for the fragments
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+
+
+
+    public void setupCodeBaseFragments(){
+//        MyCustomTF fragment=MyCustomTF.newInstance();
+//        fragment.setLabel("WTH");
+//        this.transactFragments(fragment, "MyCustomTF");
+    }
+    public void setupTextFieldsUI(){
+        this.usernameTF = (MyCustomTF) getSupportFragmentManager().findFragmentById(R.id.mctf_fragment_username);
+        usernameTF.setLabel("Username");
+        usernameTF.setTF("Username", InputType.TYPE_TEXT_VARIATION_NORMAL);
+        //
+        this.passwordTF = (MyCustomTF) getSupportFragmentManager().findFragmentById(R.id.mctf_fragment_password);
+        passwordTF.setLabel("Password");
+        passwordTF.setTF("Password", InputType.TYPE_TEXT_VARIATION_PASSWORD);
     }
 
 

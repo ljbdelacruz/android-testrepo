@@ -1,16 +1,17 @@
-package com.basecodesetup.laineljohndelacruz.myandroidbasecode;
+package com.basecodesetup.laineljohndelacruz.myandroidbasecode.fragments.textfields;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.basecodesetup.laineljohndelacruz.myandroidbasecode.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,6 +90,7 @@ public class MyCustomTF extends Fragment {
         EditText dt=(EditText) getView().findViewById(R.id.MCTF_TF);
         return dt.getText().toString();
     }
+
 
     @Override
     public void onAttach(Context context) {
